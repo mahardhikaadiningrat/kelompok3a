@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpolasi Lagrange dan Newton</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="main-heading">Kelompok 3.A Komputasi Numerik</h1>
+        <div class="team-members">
+            <p>Ida Agung Tribhuwana Mahardhika Adiningrat<br>2429101001</p>
+            <p>I Made Ardi Sudestra<br>2429101013</p>
+            <p>Ni Wayan Eva Agustini<br>2429101015</p>
+            <p>Dewa Gede Agung Mahendra<br>2429101019</p>
+            <p>I Gst. Ngr. Surya Adiputra<br>2429101020</p>
+        </div>
+
+        <h2>Interpolasi Lagrange dan Newton</h2>
+
+        <label for="operation">Pilih Operasi:</label>
+        <select id="operation" onchange="toggleInputs()">
+            <option value="lagrange">Interpolasi Lagrange</option>
+            <option value="newton">Interpolasi Newton Terbagi</option>
+        </select>
+
+        <div id="lagrangeInputs" class="inputs">
+            <h2>Interpolasi Lagrange</h2>
+            <label for="xL">Masukkan nilai x (pisahkan dengan koma):</label>
+            <input type="text" id="xL" required placeholder="Contoh: 1,2,3,4">
+
+            <label for="yL">Masukkan nilai y (pisahkan dengan koma):</label>
+            <input type="text" id="yL" required placeholder="Contoh: 1,2,3,4">
+
+            <label for="degree">Pilih Derajat:</label>
+            <select id="degree">
+                <option value="1">Derajat 1</option>
+                <option value="2">Derajat 2</option>
+            </select>
+
+            <label for="xValueL">Masukkan nilai x untuk dihitung:</label>
+            <input type="number" id="xValueL" required>
+
+            <button onclick="calculateLagrange()">Hitung Lagrange</button>
+
+            <!-- Tombol Reset -->
+            <button onclick="resetPage()" class="reset-button">Reset</button>
+        </div>
+
+        <div id="newtonInputs" class="inputs" style="display:none;">
+            <h2>Interpolasi Newton Terbagi</h2>
+            <label for="xN">Masukkan nilai x (pisahkan dengan koma):</label>
+            <input type="text" id="xN" required placeholder="Contoh: 1,2,3,4">
+
+            <label for="fXN">Masukkan nilai f(x) (pisahkan dengan koma):</label>
+            <input type="text" id="fXN" required placeholder="Contoh: 1,2,3,4">
+
+            <label for="interpX">Nilai x yang akan diinterpolasi:</label>
+            <input type="number" id="interpX" required>
+
+            <button onclick="calculateNewton()">Hitung Newton</button>
+
+            <!-- Tombol Reset -->
+            <button onclick="resetPage()" class="reset-button">Reset</button>
+        </div>
+
+        <canvas id="resultChart"></canvas>
+
+        <div id="output"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
